@@ -1,0 +1,16 @@
+@startuml Test
+
+state Fork <<fork>>
+note left: Start both State1 and state2
+
+state Join <<join>>
+
+[*] --> Fork
+Fork --> State1
+Fork --> State2
+State1 --> Join
+note left: State1 and State2 exist together
+
+State2 --> Join
+Join --> [*]
+@enduml

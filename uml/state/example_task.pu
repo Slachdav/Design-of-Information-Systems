@@ -1,0 +1,19 @@
+@startuml
+state Created : init variables
+state Pending : wait for signal
+state Started : compute data
+state Finished : store data
+state Error
+
+[*] --> Created: Created
+Created --> Pending: Finish init
+Pending --> Started: Start signal obtained
+Started --> Finished: Calculations finished
+Finished --> [*]: Deleted
+Created --> Error
+Pending --> Error
+Started --> Error
+Finished --> Error
+Error --> [*]
+
+@enduml
